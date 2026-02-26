@@ -1,61 +1,61 @@
-&lt;!DOCTYPE html&gt;  
-&lt;html&gt;  
-&lt;head&gt;  
-  &lt;title&gt;Simple Media Player&lt;/title&gt;  
-  &lt;style&gt;  
-    body { font-family: sans-serif; text-align: center; background: #f4f4f4; }  
-    .controls { margin: 10px 0; }  
-    button { margin: 0 5px; padding: 5px 10px; }  
-    #codeBox { margin: 20px auto; background: #fff; padding: 15px; border-radius: 8px; width: 340px; text-align: left; }  
-  &lt;/style&gt;  
-&lt;/head&gt;  
-&lt;body&gt;  
-  &lt;input type="file" id="fileInput" accept="audio/*,video/*"&gt;  
-  <video width="320" controls>Your browser does not support this media.</video>  
-  <div>  
-    &lt;button onclick="skip(-5)"&gt;-5s&lt;/button&gt;  
-    &lt;button onclick="skip(5)"&gt;+5s&lt;/button&gt;  
-    &lt;label&gt;Speed:  
-      &lt;input type="range" min="0.5" max="2" step="0.1" value="1" id="speedSlider"&gt;  
-    &lt;/label&gt;  
-    <span>1x</span>  
-    &lt;label&gt;Volume:  
-      &lt;input type="range" min="0" max="1" step="0.01" value="1" id="volumeSlider"&gt;  
-    &lt;/label&gt;  
-  </div>  
-  <div>  
-    <h3>How this site works</h3>  
-    <p>This is a simple one-file media player. Upload an mp3/mp4, use the controls to skip, change speed, and adjust volume.</p>  
-  </div>  
-  &lt;script&gt;  
-    const player = document.getElementById('player');  
-    const speedSlider = document.getElementById('speedSlider');  
-    const speedValue = document.getElementById('speedValue');  
-    const volumeSlider = document.getElementById('volumeSlider');  
-    const fileInput = document.getElementById('fileInput');  
-  
-    function skip(seconds) {  
-      player.currentTime += seconds;  
-    }  
-  
-    speedSlider.oninput = function() {  
-      player.playbackRate = this.value;  
-      speedValue.textContent = this.value + "x";  
-    };  
-  
-    volumeSlider.oninput = function() {  
-      player.volume = this.value;  
-    };  
-  
-    fileInput.onchange = function() {  
-      const file = this.files[0];  
-      if (file) {  
-        const url = URL.createObjectURL(file);  
-        player.src = url;  
-        player.load();  
-        player.play();  
-      }  
-    };  
-  &lt;/script&gt;  
-&lt;/body&gt;  
-&lt;/html&gt;  
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Simple Media Player</title>
+  <style>
+    body { font-family: sans-serif; text-align: center; background: #f4f4f4; }
+    .controls { margin: 10px 0; }
+    button { margin: 0 5px; padding: 5px 10px; }
+    #codeBox { margin: 20px auto; background: #fff; padding: 15px; border-radius: 8px; width: 340px; text-align: left; }
+  </style>
+</head>
+<body>
+  <input type="file" id="fileInput" accept="audio/*,video/*">
+  <video width="320" id="player" controls>Your browser does not support this media.</video>
+  <div class="controls">
+    <button onclick="skip(-5)">-5s</button>
+    <button onclick="skip(5)">+5s</button>
+    <label>Speed:
+      <input type="range" min="0.5" max="2" step="0.1" value="1" id="speedSlider">
+      <span id="speedValue">1x</span>
+    </label>
+    <label>Volume:
+      <input type="range" min="0" max="1" step="0.01" value="1" id="volumeSlider">
+    </label>
+  </div>
+  <div>
+    <h3>How this site works</h3>
+    <p>This is a simple one-file media player. Upload an mp3/mp4, use the controls to skip, change speed, and adjust volume.</p>
+  </div>
+  <script>
+    const player = document.getElementById('player');
+    const speedSlider = document.getElementById('speedSlider');
+    const speedValue = document.getElementById('speedValue');
+    const volumeSlider = document.getElementById('volumeSlider');
+    const fileInput = document.getElementById('fileInput');
+
+    function skip(seconds) {
+      player.currentTime += seconds;
+    }
+
+    speedSlider.oninput = function() {
+      player.playbackRate = this.value;
+      speedValue.textContent = this.value + "x";
+    };
+
+    volumeSlider.oninput = function() {
+      player.volume = this.value;
+    };
+
+    fileInput.onchange = function() {
+      const file = this.files[0];
+      if (file) {
+        const url = URL.createObjectURL(file);
+        player.src = url;
+        player.load();
+        player.play();
+      }
+    };
+  </script>
+</body>
+</html>
