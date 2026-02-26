@@ -1,12 +1,8 @@
-body {  
-  font-family: sans-serif;  
-  text-align: center;  
-  background: #f4f4f4;  
-}  
-.controls {  
-  margin-top: 10px;  
-}  
-button {  
-  margin: 0 5px;  
-  padding: 5px 10px;  
+#codeBox {  
+  margin-top: 20px;  
+  background: #fff;  
+  padding: 15px;  
+  border-radius: 8px;  
+  display: inline-block;  
+  text-align: left;  
 }  
