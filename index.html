@@ -1,13 +1,6 @@
-&lt;!DOCTYPE html&gt;  
-&lt;html&gt;  
-&lt;head&gt;  
-  &lt;title&gt;Simple Media Player&lt;/title&gt;  
-  &lt;link rel="stylesheet" href="style.css"&gt;  
-&lt;/head&gt;  
 &lt;body&gt;  
+  &lt;input type="file" id="fileInput" accept="audio/*,video/*" multiple&gt;  
   <video width="320" controls>  
-    &lt;source src="yourvideo.mp4" type="video/mp4"&gt;  
-    &lt;source src="youraudio.mp3" type="audio/mp3"&gt;  
     Your browser does not support this media.  
   </video>  
   <div>  
@@ -17,7 +10,13 @@
       &lt;input type="range" min="0.5" max="2" step="0.1" value="1" id="speedSlider"&gt;  
     &lt;/label&gt;  
     <span>1x</span>  
+    &lt;label&gt;Volume:   
+      &lt;input type="range" min="0" max="1" step="0.01" value="1" id="volumeSlider"&gt;  
+    &lt;/label&gt;  
+  </div>  
+  <div>  
+    <h3>How this site works</h3>  
+    <p>This site lets you upload and play media files. Use the controls to skip, change speed, and adjust volume. You can find the code on <a href="#">GitHub</a>.</p>  
   </div>  
   &lt;script src="main.js"&gt;&lt;/script&gt;  
 &lt;/body&gt;  
-&lt;/html&gt;  
