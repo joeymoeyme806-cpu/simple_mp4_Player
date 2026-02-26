@@ -1,0 +1,23 @@
+&lt;!DOCTYPE html&gt;  
+&lt;html&gt;  
+&lt;head&gt;  
+  &lt;title&gt;Simple Media Player&lt;/title&gt;  
+  &lt;link rel="stylesheet" href="style.css"&gt;  
+&lt;/head&gt;  
+&lt;body&gt;  
+  <video width="320" controls>  
+    &lt;source src="yourvideo.mp4" type="video/mp4"&gt;  
+    &lt;source src="youraudio.mp3" type="audio/mp3"&gt;  
+    Your browser does not support this media.  
+  </video>  
+  <div>  
+    &lt;button onclick="skip(-5)"&gt;-5s&lt;/button&gt;  
+    &lt;button onclick="skip(5)"&gt;+5s&lt;/button&gt;  
+    &lt;label&gt;Speed:   
+      &lt;input type="range" min="0.5" max="2" step="0.1" value="1" id="speedSlider"&gt;  
+    &lt;/label&gt;  
+    <span>1x</span>  
+  </div>  
+  &lt;script src="main.js"&gt;&lt;/script&gt;  
+&lt;/body&gt;  
+&lt;/html&gt;  
