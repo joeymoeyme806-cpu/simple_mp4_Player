@@ -1,17 +1,39 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Simple MP4 Player</title>
+<title>Simple Video Downloader</title>
 </head>
 <body>
-    <h1>Video Player</h1>
-    <div id="player">
-        <!-- Updated: Added YouTube video support -->
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/YOUR_VIDEO_ID" frameborder="0" allowfullscreen></iframe>
-    </div>
-    <!-- Removed volume and speed controls -->
-    <script>
-        // JavaScript code for handling the video player
-    </script>
+
+<h2>Video Downloader</h2>
+
+<input id="url" type="text" placeholder="Paste direct video URL">
+<button onclick="download()">Download</button>
+
+<script>
+async function download() {
+    const url = document.getElementById("url").value;
+
+    try {
+        const response = await fetch(url);
+
+        if (!response.ok) {
+            alert("Download failed: site blocked request");
+            return;
+        }
+
+        const blob = await response.blob();
+        const link = document.createElement("a");
+
+        link.href = URL.createObjectURL(blob);
+        link.download = "video";
+        link.click();
+
+    } catch (err) {
+        alert("Error: " + err);
+    }
+}
+</script>
+
 </body>
 </html>
